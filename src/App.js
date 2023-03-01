@@ -2,15 +2,30 @@ import React, { Component } from 'react';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
+import { getEvents } from './api';
 
 import './App.css';
 
 class App extends Component {
+  state = {
+    events: [],
+    locations: []
+  }
+
+  updateEvents = (location) => {
+    getEvents().then((events) => {
+      const locationEvents = events.filter((event) => event.location === location);
+      this.setState({
+        events: locationEvents
+      });
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <CitySearch />
-        <EventList />
+        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+        <EventList events={this.state.events} />
         <NumberOfEvents />
       </div>
     );
