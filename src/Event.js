@@ -22,6 +22,24 @@ class Event extends Component {
         <p className='event-location'>
           {`@${event.summary} | ${event.location}`}
         </p>
+
+        {!collapsed && (
+          <div className='event-details'>
+            <h2 className='about'>
+              About the event:
+            </h2>
+            <a className='link' href={event.htmlLink} target='_blank' rel='noopener noreferrer'>
+              See details on Google Cal
+            </a>
+            <p className='description'>
+              {event.description}
+            </p>
+          </div>
+        )}
+
+        <button className='details-button' onClick={() => this.toggleDetails()}>
+          {collapsed ? 'show' : 'hide'} details
+        </button>
       </div>
     )
   };
