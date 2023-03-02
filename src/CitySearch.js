@@ -4,6 +4,7 @@ class CitySearch extends Component {
   state = {
     query: '',
     suggestions: [],
+    showSuggestions: undefined
   };
   handleInputChanged = (event) => {
     const value = event.target.value;
@@ -30,6 +31,7 @@ class CitySearch extends Component {
           className='city'
           value={this.state.query}
           onChange={this.handleInputChanged}
+          onFocus={() => { this.setState({ showSuggestions: true }) }}
         />
         <ul className='suggestions'>
           {this.state.suggestions.map((suggestion) => (
