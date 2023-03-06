@@ -8,21 +8,34 @@ class CitySearch extends Component {
   };
   handleInputChanged = (event) => {
     const value = event.target.value;
+    this.setState({ showSuggestions: true });
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({
-      query: value,
-      suggestions,
-    });
+    if (suggestions.length === 0) {
+      this.setState({
+        query: value,
+        suggestions: [],
+        showSuggestions: false,
+      });
+    } else {
+      return this.setState({
+        query: value,
+        suggestions,
+      });
+    }
   };
+
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
+      suggestions: [],
       showSuggestions: false
     });
     this.props.updateEvents(suggestion);
-  }
+  };
+
+  handleInputFocus = () => { this.setState({ showSuggestions: true }) };
 
   render() {
     return (
@@ -30,11 +43,15 @@ class CitySearch extends Component {
         <input
           type='text'
           className='city'
+          placeholder='Search'
           value={this.state.query}
           onChange={this.handleInputChanged}
-          onFocus={() => { this.setState({ showSuggestions: true }) }}
+          onFocus={this.handleInputFocus}
         />
-        <ul className='suggestions' style={this.state.showSuggestions ? {} : { display: 'none' }}>
+        <ul
+          className='suggestions'
+          style={this.state.showSuggestions ? {} : { display: 'none' }}
+        >
           {this.state.suggestions.map((suggestion) => (
             <li
               key={suggestion}
