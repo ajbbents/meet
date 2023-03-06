@@ -1,6 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
+// import App from '../App';
+// import EventList from '../EventList';
+// import { mockData } from '../mock-data';
+// import { extractLocations, getEvents } from '../api';
 
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsWrapper;
@@ -33,5 +37,12 @@ describe('<NumberOfEvents /> component', () => {
     );
     expect(NumberOfEventsWrapperWithProp.state('num')).toBe(7);
   });
+});
 
-})
+// describe('<NumberofEvents /> integration', () => {
+//   test('App', () => {
+//     const AppWrapper = mount(<App />);
+
+//     AppWrapper.unmount();
+//   });
+// })
