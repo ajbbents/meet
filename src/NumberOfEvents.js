@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
-  state = { num: 10 };
-
-  changeNum = (value) => {
-    this.setState({ num: value });
-    this.props.updateNumberOfEvents(value);
-    if (value < 1 || value > 10) {
-      this.setState({ errorText: 'Please select a value between 1 and 10' });
-    } else this.setState({ errorText: '' });
+  state = {
+    query: '',
+    num: 10
   };
+
+  handleInputChanged = (event, props) => {
+    let inputValue = event.target.value;
+    if (inputValue < 0) inputValue = 0;
+    this.props.updateEvents(null, inputValue);
+    this.setState({ num: inputValue });
+    console.log(this.props);
+  }
+
+  // changeNum = (value) => {
+  //   this.setState({ num: value });
+  //   this.props.updateNumberOfEvents(value);
+  //   if (value < 1 || value > 10) {
+  //     this.setState({ errorText: 'Please select a value between 1 and 10' });
+  //   } else this.setState({ errorText: '' });
+  // };
 
   componentDidMount() {
     this.setState({ num: this.props.num || 10 });
@@ -27,7 +38,7 @@ class NumberOfEvents extends Component {
             type='number'
             value={num}
             onChange={(event) => {
-              this.changeNum(event.target.value);
+              this.handleInputChanged(event);
             }}
           >
           </input>
