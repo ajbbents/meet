@@ -11,7 +11,8 @@ class App extends Component {
     events: [],
     locations: [],
     selectedLocation: 'all',
-    eventCount: 10
+    eventCount: 10,
+    updateEvents: []
   }
 
   async componentDidMount() {
@@ -75,7 +76,7 @@ class App extends Component {
         <EventList events={this.state.events} />
         <NumberOfEvents
           eventCount={this.state.eventCount}
-          updateEvents={this.updateEvents}
+          updateEvents={this.state.updateEvents}
         />
       </div>
     );
