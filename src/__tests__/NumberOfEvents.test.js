@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 // import App from '../App';
 // import EventList from '../EventList';
@@ -10,7 +10,7 @@ describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
     NumberOfEventsWrapper = shallow(
-      <NumberOfEvents updateNumberOfEvents={() => { }} />
+      <NumberOfEvents updateEvents={() => { }} />
     );
   });
 
@@ -33,7 +33,7 @@ describe('<NumberOfEvents /> component', () => {
 
   test('rendered number of events is accurate to user input', () => {
     const NumberOfEventsWrapperWithProp = shallow(
-      <NumberOfEvents num={7} updateNumberOfEvents={() => { }} />
+      <NumberOfEvents num={7} updateEvents={() => { }} />
     );
     expect(NumberOfEventsWrapperWithProp.state('num')).toBe(7);
   });
