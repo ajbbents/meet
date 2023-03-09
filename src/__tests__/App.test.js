@@ -87,15 +87,15 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  // test('Events rendered match mock API content', async () => {
-  //   const AppWrapper = mount(<App />);
-  //   const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-  //   NumberOfEventsWrapper.find('.num').simulate('change', {
-  //     target: { value: 1 }
-  //   });
-  //   await getEvents();
-  //   expect(AppWrapper.state('events')).toEqual(mockData.slice(0, 1));
-  //   AppWrapper.unmount();
-  // });
+  test('Events rendered match mock API content', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    NumberOfEventsWrapper.find('.num').simulate('change', {
+      target: { value: 1 }
+    });
+    await getEvents();
+    expect(AppWrapper.state('events')).toEqual(mockData.slice(0, 1));
+    AppWrapper.unmount();
+  });
 
 });
