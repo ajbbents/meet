@@ -10,7 +10,6 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    // selectedLocation: 'all',
     numberOfEvents: 10,
     updateEvents: [],
   }
@@ -78,30 +77,3 @@ class App extends Component {
 }
 
 export default App;
-
-// updateEvents = (location, num) => {
-  //   const { eventCount, selectedLocation } = this.state;
-  //   if (location) {
-  //     getEvents().then((events) => {
-  //       const locationEvents = (location === 'all') ?
-  //         events :
-  //         events.filter((event) => event.location === location);
-  //       const eventsToShow = locationEvents.slice(0, eventCount);
-  //       this.setState({
-  //         events: eventsToShow,
-  //         selectedLocation: location
-  //       });
-  //     });
-  //   } else {
-  //     getEvents().then((events) => {
-  //       const locationEvents = (selectedLocation === 'all') ?
-  //         events :
-  //         events.filter((event) => event.location === selectedLocation);
-  //       const eventsToShow = locationEvents.slice(0, num);
-  //       this.setState({
-  //         events: eventsToShow,
-  //         eventCount: num
-  //       });
-  //     })
-  //   }
-  // };
