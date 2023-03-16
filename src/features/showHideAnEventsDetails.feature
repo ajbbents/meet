@@ -1,9 +1,9 @@
 Feature: Show/Hide an event's details
 
 Scenario: An event element is collapsed by default
-Given user hasn’t clicked/asked for an event’s details
-When user opens an event
-Then event details are collapsed
+Given a list of events has opened
+When user scrolls through events
+Then all details should be hidden
 
 Scenario: User can expand an event to see its details
 Given user clicked on an event to see details
