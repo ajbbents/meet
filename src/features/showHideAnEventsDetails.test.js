@@ -5,8 +5,8 @@ import App from '../App';
 
 const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 defineFeature(feature, test => {
+  let AppWrapper;
   test('An event element is collapsed by default', ({ given, when, then }) => {
-    let AppWrapper;
     given('a list of events has opened', () => {
       AppWrapper = mount(<App />);
     });
@@ -23,16 +23,17 @@ defineFeature(feature, test => {
 
 
   test('User can expand an event to see its details', ({ given, when, then }) => {
-    given('user clicked on an event to see details', () => {
-
+    given('list of events is open', () => {
+      AppWrapper = mount(<App />);
     });
 
     when('user clicks', () => {
-
+      AppWrapper.update();
+      AppWrapper.find('.event .details-button').at(0).simulate('click');
     });
 
     then('event details will expand', () => {
-
+      expect(AppWrapper.find('.event .event-details')).toHaveLength(1);
     });
   });
 

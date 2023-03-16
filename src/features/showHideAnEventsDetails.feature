@@ -6,7 +6,7 @@ When user scrolls through events
 Then all details should be hidden
 
 Scenario: User can expand an event to see its details
-Given user clicked on an event to see details
+Given list of events is open
 When user clicks
 Then event details will expand
 
