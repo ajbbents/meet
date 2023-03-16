@@ -38,16 +38,19 @@ defineFeature(feature, test => {
   });
 
   test('User can collapse an event to hide its details', ({ given, when, then }) => {
-    given('user clicked on the event to hide details', () => {
-
+    given('event details are expanded', async () => {
+      AppWrapper = await mount(<App />);
+      AppWrapper.update();
+      AppWrapper.find('.event .details-button').at(0).simulate('click');
     });
 
     when('user clicks', () => {
-
+      AppWrapper.update();
+      AppWrapper.find('.event .details-button').at(0).simulate('click');
     });
 
     then('event details will collapse', () => {
-
+      expect(AppWrapper.find('.event .event-deatils')).toHaveLength(0);
     });
   });
 });

@@ -11,6 +11,6 @@ When user clicks
 Then event details will expand
 
 Scenario: User can collapse an event to hide its details
-Given user clicked on the event to hide details
+Given event details are expanded
 When user clicks
 Then event details will collapse
