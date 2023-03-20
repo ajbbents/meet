@@ -32,6 +32,7 @@ describe('filter events by city', () => {
     const numberOfCities = await page.$$eval(
       '.suggestions li',
       (element) => element.length
+
     );
     expect(numberOfCities).toBe(2);
   });
