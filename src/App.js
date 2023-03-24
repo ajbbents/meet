@@ -17,6 +17,11 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
+    if (!navigator.onLine) {
+      this.setState({
+        infoText: "Looks like you have gone offline. Check your connection for updated listings."
+      });
+    }
     getEvents().then((events) => {
       if (this.mounted) {
         events = events.slice(0, this.state.eventCount);
