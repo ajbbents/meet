@@ -5,6 +5,7 @@ import CitySearch from './CitySearch';
 import { extractLocations, getEvents } from './api';
 import './nprogress.css';
 import './App.css';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -61,6 +62,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Meet: how we gather</h1>
+        <div className='WarningAlert'>
+          {!navigator.onLine && (
+            <WarningAlert
+              text={'Looks like you have gone offline. Check your connection for updated listings.'}
+            />
+          )}
+        </div>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
