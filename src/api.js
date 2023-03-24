@@ -85,7 +85,7 @@ export const getEvents = async () => {
     const data = localStorage.getItem("lastEvents");
     NProgress.done();
     return data ? JSON.parse(data).events : [];
-  };
+  }
 
   const token = await getAccessToken();
 
