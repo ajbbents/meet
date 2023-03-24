@@ -5,7 +5,6 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import * as atatus from 'atatus-spa';
-// import * as serviceWorker from './service-worker';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +13,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// serviceWorker.register();
 serviceWorkerRegistration.register();
 
 reportWebVitals();
