@@ -1,10 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
 .App {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
+  padding: 2% 2%;
+  background-color: cadetblue;
 }
 
 .App * {
@@ -13,7 +12,7 @@
 
 h1 {
   color: rgba(25, 49, 11, 0.938);
-  margin: .25em 0;
+  margin: 1%;
 }
 
 ul {
@@ -85,6 +84,11 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
+.EventList {
+  margin-block: 5%;
+  column-count: 3;
+}
+
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
@@ -94,7 +98,7 @@ input[type="number"] {
   position: relative;
 }
 
-.details-btn {
+.details-button {
   position: absolute;
   right: 5px;
   bottom: 5px;
