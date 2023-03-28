@@ -3,7 +3,7 @@
 .App {
   text-align: center;
   padding: 2% 2%;
-  background-color: cadetblue;
+  background-color: rgb(140, 158, 158);
 }
 
 .App * {
@@ -86,7 +86,6 @@ input[type="number"] {
 
 .EventList {
   margin-block: 5%;
-  column-count: 3;
 }
 
 .event {
@@ -142,8 +141,8 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
-  top: 20px;
+  position: sticky;
+  top: 70px;
 }
 
 .data-vis-wrapper {
